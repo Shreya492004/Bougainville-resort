@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bougainville Resort By The Sea</title>
     <!-- Google Fonts: Aboreto -->
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary: #b94e9e;
@@ -29,6 +29,8 @@
         /* Fixes half-cut content issue when jumping via anchor links */
         html {
             scroll-padding-top: 100px;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -39,7 +41,9 @@
             color: var(--text-main);
             background-color: var(--bg);
             padding-top: 90px;
+            width: 100%;
             overflow-x: hidden;
+            position: relative;
         }
 
         p {
@@ -145,6 +149,7 @@
             cursor: pointer;
             flex-direction: column;
             gap: 6px;
+            z-index: 1100;
         }
 
         .menu-toggle span {
@@ -163,17 +168,6 @@
             100% {
                 opacity: 1;
                 transform: scale(1);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
             }
         }
 
@@ -271,12 +265,6 @@
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
             font-family: 'Aboreto', display, sans-serif;
             font-style: normal;
-        }
-
-        @media (max-width: 768px) {
-            .kr-title {
-                font-size: 2.2rem;
-            }
         }
 
         .kr-btn {
@@ -386,8 +374,9 @@
             color: var(--primary);
             margin-bottom: 35px;
             font-family: 'Aboreto', display, sans-serif;
-            line-height: 1.2;
-            font-weight: 600;
+            line-height: 1.3;
+            font-weight: 400; 
+            letter-spacing: 0.12em;
         }
 
         .about-content-box {
@@ -428,11 +417,12 @@
             gap: 15px;
         }
 
+        /* --- REDUCED ICON SIZE (KUTTY AAKKIYATHU) --- */
         .about-feature-icon {
-            font-size: 40px;
+            font-size: 26px; /* Decreased from 40px to 26px */
             color: var(--primary);
-            line-height: 1;
-            min-width: 45px;
+            line-height: 1.2;
+            min-width: 32px;
         }
 
         .about-feature-content h4 {
@@ -589,11 +579,15 @@
             box-shadow: none;
         }
 
+        /* --- ACCOMMODATION IMAGE TOP BORDER RADIUS INCREASED --- */
         .sigma_post .sigma_post-thumb {
             position: relative;
             display: block;
             overflow: hidden;
-            border-radius: 4px;
+            border-top-left-radius: 20px;  
+            border-top-right-radius: 20px; 
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
         }
 
         .sigma_post .sigma_post-thumb img {
@@ -608,6 +602,7 @@
             transform: scale(1.05);
         }
 
+        /* --- ACCOMMODATION CONTENT BOX TOP BORDER RADIUS INCREASED --- */
         .sigma_post.style-2 .sigma_post-body {
             background-color: #ffffff;
             border: none;
@@ -620,7 +615,10 @@
             position: relative;
             z-index: 2;
             text-align: left;
-            border-radius: 4px;
+            border-top-left-radius: 20px;  
+            border-top-right-radius: 20px; 
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
         }
 
         .room-specs-bar {
@@ -878,7 +876,8 @@
             position: relative;
             z-index: 1;
             font-family: 'Aboreto', display, sans-serif;
-            font-size: 15px; /* Reduced font size here */
+            font-style: italic; 
+            font-size: 15px;
             line-height: 1.7;
             margin-bottom: 15px;
         }
@@ -951,6 +950,18 @@
             color: var(--primary);
         }
 
+        .footer-widget a.footer-contact-link,
+        .footer-widget p a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-widget a.footer-contact-link:hover,
+        .footer-widget p a:hover {
+            color: var(--primary);
+        }
+
         .footer-reservation-box {
             display: inline-block;
             border: 1px solid #ffffff;
@@ -986,17 +997,17 @@
         /* Floating WhatsApp Button Styling */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
+            width: 55px;
+            height: 55px;
+            bottom: 25px;
+            right: 25px;
             background-color: #25d366;
             color: #FFF;
             border-radius: 50px;
             text-align: center;
-            font-size: 30px;
+            font-size: 28px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+            z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1008,30 +1019,52 @@
             transform: scale(1.1);
         }
 
+        /* --- MOBILE RESPONSIVE SIDE DRAWER FIX (DESKTOP UNTOUCHED) --- */
         @media (max-width: 968px) {
+            html, body {
+                max-width: 100vw;
+                overflow-x: hidden !important;
+            }
+
+            .site-header {
+                padding: 12px 15px;
+            }
+
             .header-nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 260px;
+                max-width: 80vw;
+                height: 100vh;
                 background-color: var(--bg);
                 flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.4s ease-in-out;
+                align-items: flex-start;
+                padding: 80px 25px 30px 25px;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                z-index: 1050;
             }
 
             .header-nav.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                right: 0;
             }
 
             .nav-links {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
                 gap: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
+                width: 100%;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .reservation-btn {
+                width: 100%;
+                text-align: center;
             }
 
             .menu-toggle {
@@ -1049,20 +1082,148 @@
             }
 
             .relaunch-title, .section-main-title, .peer-proof-title {
-                font-size: 2rem;
+                font-size: 1.8rem !important;
+                line-height: 1.3;
             }
 
             .image-frame {
-                height: 350px;
+                height: 320px;
             }
 
             .modern-cta-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem !important;
                 white-space: normal;
+                line-height: 1.4;
             }
 
             .peer-proof-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 75px;
+            }
+
+            .kr-hero {
+                height: 75vh;
+                min-height: 400px;
+            }
+
+            .kr-content {
+                padding: 0 15px;
+            }
+
+            .kr-subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+
+            .kr-title {
+                font-size: 1.7rem !important;
+            }
+
+            .kr-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .kr-counter {
+                right: 15px;
+                bottom: 15px;
+                font-size: 0.85rem;
+            }
+
+            .kr-dots {
+                bottom: 20px;
+            }
+
+            .relaunch-section {
+                padding: 40px 15px;
+            }
+
+            .relaunch-image-col {
+                padding-left: 0;
+                padding-top: 0;
+            }
+
+            .pink-backdrop-card {
+                right: 0;
+            }
+
+            .image-frame {
+                height: 280px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-main-title {
+                font-size: 1.6rem !important;
+                padding: 0 15px;
+            }
+
+            .accommodation-intro-text {
+                padding: 0 15px;
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+
+            .sigma_post.style-2 .sigma_post-body {
+                width: calc(100% - 20px);
+                margin-left: 10px;
+                margin-top: -30px;
+                padding: 20px 15px 15px 15px;
+            }
+
+            .modern-cta-section {
+                height: 320px;
+            }
+
+            .modern-cta-btn {
+                padding: 12px 25px;
+                font-size: 0.85rem;
+            }
+
+            .peer-proof-section {
+                padding: 40px 15px;
+            }
+
+            .peer-proof-title {
+                font-size: 1.6rem !important;
+            }
+
+            .peer-proof-subtitle {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .peer-proof-card {
+                padding: 30px 20px 20px 30px;
+                min-height: auto;
+            }
+
+            .sigma_footer {
+                padding: 40px 0 0;
+            }
+
+            .sigma_footer .row {
+                flex-direction: column;
+                gap: 30px !important;
+            }
+
+            .footer-widget {
+                text-align: left !important;
+            }
+
+            .whatsapp-float {
+                width: 48px;
+                height: 48px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 22px;
             }
         }
     </style>
@@ -1219,7 +1380,7 @@
 
             <div class="section-header">
                 <h2 class="section-main-title">Unique Accommodations</h2>
-                <p class="accommodation-intro-text">Offering stays in Mongolian styled Yurts which is unique to Chennai, along with sea deck rooms featuring private balconies facing the ocean.</p>
+                <p class="accommodation-intro-text">Offering stays in Mongolian styled Yurts which is unique to <br> Chennai, along with sea deck rooms featuring private <br> balconies facing the ocean.</p>
             </div>
 
             <div class="row justify-content-center">
@@ -1358,27 +1519,26 @@
                         </p>
                     </div>
 
-                    <!-- Quick Links (Centered) -->
-                    <div class="col-lg-4 col-md-6 footer-widget" style="flex: 1; min-width: 200px; text-align: center;">
-                        <h5 class="widget-title">Quick Links</h5>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 15px;"><a href="#about">About</a></li>
-                            <li style="margin-bottom: 15px;"><a href="#stays">Stays</a></li>
-                            <li style="margin-bottom: 15px;"><a href="#reviews">Reviews</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Info Column -->
+                    <!-- Contact Info Column (In Middle) -->
                     <div class="col-lg-3 col-md-6 footer-widget" style="flex: 1; min-width: 280px;">
                         <h5 class="widget-title">Contact Info</h5>
                         <p style="margin-bottom: 10px;">
                             No.1 , Casuarina Drive, Philip Thottam,<br>
                             Kovalam , Chennai 603112, Tamil Nadu, IN
                         </p>
-                        <p style="margin-bottom: 10px;">Phone: 9444007890</p>
-                        <p style="margin-bottom: 20px; white-space: nowrap;">Email: bougainvillebythesea@gmail.com</p>
+                        <p style="margin-bottom: 10px;">Phone: <a href="tel:9444007890" class="footer-contact-link">9444007890</a></p>
+                        <p style="margin-bottom: 20px; white-space: nowrap;">Email: <a href="mailto:bougainvillebythesea@gmail.com" class="footer-contact-link">bougainvillebythesea@gmail.com</a></p>
+                    </div>
+
+                    <!-- Quick Links Column (On Right with Book Now button below it) -->
+                    <div class="col-lg-4 col-md-6 footer-widget" style="flex: 1; min-width: 200px; text-align: center;">
+                        <h5 class="widget-title">Quick Links</h5>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                            <li style="margin-bottom: 15px;"><a href="#about">About</a></li>
+                            <li style="margin-bottom: 15px;"><a href="#stays">Stays</a></li>
+                            <li style="margin-bottom: 15px;"><a href="#reviews">Reviews</a></li>
+                        </ul>
                         <div>
-                            <!-- Footer button changed to "BOOK NOW" and prevented redirection via event.preventDefault() -->
                             <a href="#" id="footerBookBtn" class="footer-reservation-box">BOOK NOW</a>
                         </div>
                     </div>
@@ -1406,6 +1566,14 @@
 
         mobileMenu.addEventListener('click', () => {
             headerNav.classList.toggle('active');
+        });
+
+        // Close mobile menu automatically when a navigation link is clicked
+        const navLinksItems = document.querySelectorAll('.nav-links a, .reservation-btn');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                headerNav.classList.remove('active');
+            });
         });
 
         // Prevent footer button redirection

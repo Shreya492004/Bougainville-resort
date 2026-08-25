@@ -878,8 +878,8 @@
             position: relative;
             z-index: 1;
             font-family: 'Aboreto', display, sans-serif;
-            font-size: 19px;
-            line-height: 1.85;
+            font-size: 15px; /* Reduced font size here */
+            line-height: 1.7;
             margin-bottom: 15px;
         }
 
@@ -1198,7 +1198,7 @@
                 </div>
 
                 <div class="about-btn-wrap" style="margin-top: 30px;">
-                    <a href="about-us.html" class="about-learn-more-btn">
+                    <a href="#contact" class="about-learn-more-btn">
                         Learn More <span class="material-icons" style="font-size: 18px;">arrow_forward</span>
                     </a>
                 </div>
@@ -1378,7 +1378,8 @@
                         <p style="margin-bottom: 10px;">Phone: 9444007890</p>
                         <p style="margin-bottom: 20px; white-space: nowrap;">Email: bougainvillebythesea@gmail.com</p>
                         <div>
-                            <a href="#kr-hero" class="footer-reservation-box">MAKE A RESERVATION</a>
+                            <!-- Footer button changed to "BOOK NOW" and prevented redirection via event.preventDefault() -->
+                            <a href="#" id="footerBookBtn" class="footer-reservation-box">BOOK NOW</a>
                         </div>
                     </div>
 
@@ -1406,6 +1407,14 @@
         mobileMenu.addEventListener('click', () => {
             headerNav.classList.toggle('active');
         });
+
+        // Prevent footer button redirection
+        const footerBookBtn = document.getElementById('footerBookBtn');
+        if (footerBookBtn) {
+            footerBookBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        }
 
         // Hero Banner Slider Controller
         document.addEventListener('DOMContentLoaded', function() {

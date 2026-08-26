@@ -417,9 +417,8 @@
             gap: 15px;
         }
 
-        /* --- REDUCED ICON SIZE (KUTTY AAKKIYATHU) --- */
         .about-feature-icon {
-            font-size: 26px; /* Decreased from 40px to 26px */
+            font-size: 26px;
             color: var(--primary);
             line-height: 1.2;
             min-width: 32px;
@@ -548,6 +547,7 @@
 
         .justify-content-center {
             justify-content: center;
+            align-items: stretch; /* Stretch columns to equal height */
         }
 
         .col-lg-4, .col-md-6 {
@@ -555,6 +555,8 @@
             width: 100%;
             padding-right: 15px;
             padding-left: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         @media (min-width: 768px) {
@@ -571,15 +573,18 @@
             }
         }
 
+        /* --- STAYS CARDS EQUAL HEIGHT FIX --- */
         .sigma_post.style-2 {
             position: relative;
             margin-bottom: 50px;
             background: transparent;
             border: none;
             box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
-        /* --- ACCOMMODATION IMAGE TOP BORDER RADIUS INCREASED --- */
         .sigma_post .sigma_post-thumb {
             position: relative;
             display: block;
@@ -602,7 +607,6 @@
             transform: scale(1.05);
         }
 
-        /* --- ACCOMMODATION CONTENT BOX TOP BORDER RADIUS INCREASED --- */
         .sigma_post.style-2 .sigma_post-body {
             background-color: #ffffff;
             border: none;
@@ -619,6 +623,10 @@
             border-top-right-radius: 20px; 
             border-bottom-left-radius: 4px;
             border-bottom-right-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
         }
 
         .room-specs-bar {
@@ -669,7 +677,7 @@
             justify-content: space-between;
             border-top: 1px solid #efefef;
             padding-top: 12px;
-            margin-top: 12px;
+            margin-top: auto; /* Pushes to bottom */
         }
 
         .room-bed-type {
@@ -696,34 +704,6 @@
 
         .room-book-btn:hover {
             border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .view-all-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .view-all-stays-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--primary);
-            border: 2px solid var(--primary);
-            color: #ffffff;
-            font-family: 'Aboreto', display, sans-serif;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 16px 35px;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .view-all-stays-btn:hover {
-            background-color: transparent;
             color: var(--primary);
         }
 
@@ -1019,7 +999,7 @@
             transform: scale(1.1);
         }
 
-        /* --- MOBILE RESPONSIVE SIDE DRAWER FIX (DESKTOP UNTOUCHED) --- */
+        /* --- MOBILE RESPONSIVE SIDE DRAWER FIX --- */
         @media (max-width: 968px) {
             html, body {
                 max-width: 100vw;
@@ -1321,7 +1301,7 @@
         <div class="kr-progress" id="kr-progress" aria-hidden="true"></div>
     </section>
 
-    <!-- Redesigned About Section (Side-by-Side Layout with Reference Content & Style) -->
+    <!-- Redesigned About Section -->
     <section class="relaunch-section" id="about">
         <div class="relaunch-container">
             <div class="relaunch-text-col">
@@ -1329,10 +1309,6 @@
                 <h2 class="relaunch-title">Bougainville Resorts By The Sea</h2>
                 
                 <div class="about-content-box">
-                    <p class="relaunch-desc">
-                    </p>
-                </div>
-                  <div class="about-content-box">
                     <p class="relaunch-desc">
                         Discover a breathtaking oasis where the gentle whispers of the Bay of Bengal meet unmatched luxury. Formerly known as Casuarina Bay, Bougainville Resorts By The Sea invites you to immerse yourself in tropical tranquility. Unwind in private, air-conditioned Mongolian yurts, indulge in sea-facing culinary masterworks, and celebrate life's milestones under a canopy of stars—all along the picturesque ECR near Chennai.
                     </p>
@@ -1463,14 +1439,6 @@
                     </article>
                 </div>
             </div>
-
-            <!-- View All Premium Stays Button -->
-            <div class="view-all-container">
-                <a href="#contact" class="view-all-stays-btn">
-                    View All Premium Stays <span class="material-icons" style="font-size: 18px;">arrow_forward</span>
-                </a>
-            </div>
-
         </div>
     </section>
 
@@ -1478,8 +1446,8 @@
     <section class="modern-cta-section">
         <div class="modern-cta-overlay"></div>
         <div class="modern-cta-content">
-            <h2 class="modern-cta-title">EXPERIENCE MODERN UNDERSTATEMENT</h2>
-            <a href="#contact" class="modern-cta-btn">ORDER ONLINE</a>
+            <h2 class="modern-cta-title">EXPERIENCE COASTAL LUXURY LIKE <br>NEVER BEFORE</h2>
+            <a href="#contact" class="modern-cta-btn">Get in Touch</a>
         </div>
     </section>
 
@@ -1501,9 +1469,10 @@
                 </div>
                 <div class="peer-proof-card">
                     <p class="peer-proof-text">
-                        "Our stay in the luxury yurts was an absolute dream. Waking up to the pool view, enjoying a floating breakfast, and walking right to the beach—it’s the perfect weekend escape near Chennai."
+                         A true hidden gem along the ECR. The sea-facing dining at C Salt serves incredible fresh
+                         seafood, and the sunset views are absolutely breathtaking. Highly recommended!
                     </p>
-                    <cite class="peer-proof-author">Vikram & Shalini</cite>
+                    <cite class="peer-proof-author">Meera Krishnan</cite>
                 </div>
             </div>
         </div>
@@ -1534,7 +1503,7 @@
                         <p style="margin-bottom: 20px; white-space: nowrap;">Email: <a href="mailto:bougainvillebythesea@gmail.com" class="footer-contact-link">bougainvillebythesea@gmail.com</a></p>
                     </div>
 
-                    <!-- Quick Links Column (On Right with Book Now button below it) -->
+                    <!-- Quick Links Column (With updated WhatsApp link for BOOK NOW) -->
                     <div class="col-lg-4 col-md-6 footer-widget" style="flex: 1; min-width: 200px; text-align: center;">
                         <h5 class="widget-title">Quick Links</h5>
                         <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
@@ -1543,7 +1512,8 @@
                             <li style="margin-bottom: 15px;"><a href="#reviews">Reviews</a></li>
                         </ul>
                         <div>
-                            <a href="#" id="footerBookBtn" class="footer-reservation-box">BOOK NOW</a>
+                            <!-- Changed href to target WhatsApp chat directly with pre-filled inquiry text -->
+                            <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20make%20a%20reservation%20at%20Bougainville%20Resort." id="footerBookBtn" class="footer-reservation-box" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
                         </div>
                     </div>
 
@@ -1579,14 +1549,6 @@
                 headerNav.classList.remove('active');
             });
         });
-
-        // Prevent footer button redirection
-        const footerBookBtn = document.getElementById('footerBookBtn');
-        if (footerBookBtn) {
-            footerBookBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-            });
-        }
 
         // Hero Banner Slider Controller
         document.addEventListener('DOMContentLoaded', function() {

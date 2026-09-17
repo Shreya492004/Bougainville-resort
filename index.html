@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,1213 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --primary: #b94e9e;
-            --bg: #ffffff;
-            --surface: #f7f5f6;
-            --surface-alt: #fae7f3;
-            --text-main: #2b2b2b;
-            --text-light: #555555;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Fixes half-cut content issue when jumping via anchor links */
-        html {
-            scroll-padding-top: 100px;
-            width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: 'Aboreto', display, sans-serif;
-            font-size: 19px;
-            line-height: 1.8;
-            letter-spacing: 0.05em;
-            color: var(--text-main);
-            background-color: var(--bg);
-            padding-top: 90px;
-            width: 100%;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            font-size: 19px;
-            line-height: 1.8;
-            letter-spacing: 0.05em;
-            font-family: 'Aboreto', display, sans-serif;
-            color: var(--text-light);
-            font-style: normal;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Aboreto', display, sans-serif;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            line-height: 1.3;
-            font-style: normal;
-        }
-
-        /* Header Styling */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #fffcfc;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 5%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        /* Logo Styling & Size */
-        .sigma_logo-wrapper {
-            display: flex;
-            align-items: center;
-        }
-
-        .sigma_logo-wrapper img {
-            max-height: 75px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* Navigation Menu */
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            margin: 0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Reservation Button */
-        .reservation-btn {
-            border: 1px solid var(--primary);
-            padding: 12px 24px;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            background-color: transparent;
-            font-family: 'Aboreto', display, sans-serif;
-            border-radius: 4px;
-        }
-
-        .reservation-btn:hover {
-            background-color: var(--primary);
-            color: #ffffff;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-            z-index: 1100;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background-color: var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        @keyframes fadeInZoom {
-            0% {
-                opacity: 0.3;
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Hero Slider Section Styles */
-        .kr-hero {
-            position: relative;
-            width: 100%;
-            height: 90vh;
-            min-height: 600px;
-            overflow: hidden;
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .kr-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .kr-slide.is-active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 2;
-        }
-
-        .kr-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            animation: fadeInZoom 1.5s ease forwards;
-        }
-
-        .kr-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        .kr-vignette {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
-            z-index: 1;
-        }
-
-        .kr-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            color: #ffffff;
-            max-width: 1000px;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .kr-subtitle {
-            font-size: 1rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ffffff;
-            font-family: 'Aboreto', display, sans-serif;
-            font-style: normal;
-        }
-
-        .kr-title {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            font-family: 'Aboreto', display, sans-serif;
-            font-style: normal;
-        }
-
-        .kr-btn {
-            display: inline-block;
-            background-color: var(--primary);
-            border: 2px solid var(--primary);
-            color: #ffffff;
-            font-family: 'Aboreto', display, sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 16px 40px;
-            transition: all 0.4s ease;
-            margin-top: 15px;
-            border-radius: 4px;
-            font-style: normal;
-        }
-
-        .kr-btn:hover {
-            background-color: transparent;
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        /* Slider Controls */
-        .kr-dots {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 10;
-        }
-
-        .kr-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            background: transparent;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .kr-dot.is-active {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .kr-counter {
-            position: absolute;
-            bottom: 25px;
-            right: 50px;
-            color: #fff;
-            font-size: 1rem;
-            z-index: 10;
-            letter-spacing: 2px;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .kr-progress {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 4px;
-            background: var(--primary);
-            width: 0%;
-            z-index: 10;
-        }
-
-        /* --- REDESIGNED ABOUT SECTION --- */
-        .relaunch-section {
-            background-color: var(--bg);
-            padding: 95px 6%;
-            width: 100%;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .relaunch-container {
-            max-width: 1240px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 75px;
-        }
-
-        .relaunch-text-col {
-            flex: 1.2;
-            max-width: 620px;
-        }
-
-        .about-top-tag {
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .relaunch-title {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 35px;
-            font-family: 'Aboreto', display, sans-serif;
-            line-height: 1.3;
-            font-weight: 400; 
-            letter-spacing: 0.12em;
-        }
-
-        .about-content-box {
-            position: relative;
-            padding-left: 25px;
-            border-left: 2px solid var(--primary);
-            margin-bottom: 40px;
-        }
-
-        .about-content-box::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 3px;
-            height: 35px;
-            background-color: var(--primary);
-        }
-
-        .relaunch-desc {
-            color: var(--text-light);
-            margin-bottom: 0;
-            font-family: 'Aboreto', display, sans-serif;
-            font-size: 16px;
-            line-height: 1.85;
-        }
-
-        .about-features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .about-feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .about-feature-icon {
-            font-size: 26px;
-            color: var(--primary);
-            line-height: 1.2;
-            min-width: 32px;
-        }
-
-        .about-feature-content h4 {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .about-feature-content p {
-            font-size: 13.5px;
-            color: var(--text-light);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .about-learn-more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid #e0e0e0;
-            padding: 14px 30px;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .about-learn-more-btn:hover {
-            border-color: var(--primary);
-            background-color: var(--primary);
-            color: #ffffff;
-        }
-
-        .relaunch-image-col {
-            flex: 1;
-            position: relative;
-            max-width: 580px;
-            width: 100%;
-            padding-left: 24px;
-            padding-top: 20px;
-            padding-bottom: 24px;
-        }
-
-        .pink-backdrop-card {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 24px;
-            bottom: 0;
-            background-color: var(--surface-alt);
-            z-index: 1;
-        }
-
-        .image-frame {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 520px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-
-        .image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* --- UNIQUE ACCOMMODATION SECTION --- */
-        .about-section-padding {
-            padding: 70px 0px !important;
-        }
-
-        .light-bg {
-            background-color: #fcf9fc;
-        }
-
-        .section {
-            position: relative;
-            padding: 90px 0;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .section-main-title {
-            font-size: 3rem;
-            color: var(--primary);
-            font-family: 'Aboreto', display, sans-serif;
-            letter-spacing: 0.12em;
-            margin-bottom: 10px;
-        }
-
-        .accommodation-intro-text {
-            max-width: 800px;
-            margin: 0 auto 55px auto;
-            text-align: center;
-            font-size: 17px;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: -15px;
-            margin-left: -15px;
-        }
-
-        .justify-content-center {
-            justify-content: center;
-            align-items: stretch; /* Stretch columns to equal height */
-        }
-
-        .col-lg-4, .col-md-6 {
-            position: relative;
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (min-width: 768px) {
-            .col-md-6 {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .col-lg-4 {
-                flex: 0 0 33.333333%;
-                max-width: 33.333333%;
-            }
-        }
-
-        /* --- STAYS CARDS EQUAL HEIGHT FIX --- */
-        .sigma_post.style-2 {
-            position: relative;
-            margin-bottom: 50px;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .sigma_post .sigma_post-thumb {
-            position: relative;
-            display: block;
-            overflow: hidden;
-            border-top-left-radius: 20px;  
-            border-top-right-radius: 20px; 
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-        }
-
-        .sigma_post .sigma_post-thumb img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-            display: block;
-        }
-
-        .sigma_post .sigma_post-thumb:hover img {
-            transform: scale(1.05);
-        }
-
-        .sigma_post.style-2 .sigma_post-body {
-            background-color: #ffffff;
-            border: none;
-            border-top: 3px solid var(--primary);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            width: calc(100% - 30px);
-            margin-left: 15px;
-            margin-top: -50px;
-            padding: 25px 20px 20px 20px;
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            border-top-left-radius: 20px;  
-            border-top-right-radius: 20px; 
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .room-specs-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.8rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .room-spec-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: var(--primary);
-        }
-
-        .sigma_post .sigma_post-body h5 {
-            margin: 0 0 10px 0;
-            font-size: 1.15rem;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .sigma_post .sigma_post-body h5 a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .sigma_post .sigma_post-body h5 a:hover {
-            color: var(--primary);
-        }
-
-        .sigma_post .sigma_post-body p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .room-footer-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid #efefef;
-            padding-top: 12px;
-            margin-top: auto; /* Pushes to bottom */
-        }
-
-        .room-bed-type {
-            font-size: 0.8rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .room-book-btn {
-            display: inline-block;
-            background-color: transparent;
-            border: 1px solid transparent;
-            color: var(--primary);
-            font-family: 'Aboreto', display, sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 8px 16px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .room-book-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        /* Modern CTA Section */
-        .modern-cta-section {
-            position: relative;
-            width: 100%;
-            height: 480px;
-            background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .modern-cta-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 8, 10, 0.45);
-            z-index: 1;
-        }
-
-        .modern-cta-content {
-            position: relative;
-            z-index: 2;
-            padding: 0 20px;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            width: 100%;
-        }
-
-        .modern-cta-title {
-            font-size: 3.4rem;
-            color: #ffffff;
-            white-space: nowrap;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.8);
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .modern-cta-btn {
-            display: inline-block;
-            background-color: var(--primary);
-            border: 2px solid var(--primary);
-            color: #ffffff;
-            font-family: 'Aboreto', display, sans-serif;
-            font-size: 1.15rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 16px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .modern-cta-btn:hover {
-            background-color: transparent;
-            color: #ffffff;
-            border-color: #ffffff;
-        }
-
-        /* Testimonials Section Styles */
-        .peer-proof-section {
-            position: relative;
-            background: linear-gradient(135deg, #fdf8fb 0%, #faeef6 50%, #fdf8fb 100%);
-            background-attachment: fixed;
-            padding: 95px 6%;
-            width: 100%;
-            font-family: 'Aboreto', display, sans-serif;
-            overflow: hidden;
-        }
-
-        .peer-proof-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1240px;
-            margin: 0 auto;
-        }
-
-        .peer-proof-header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .peer-proof-title {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-family: 'Aboreto', display, sans-serif;
-            letter-spacing: 0.12em;
-        }
-
-        .peer-proof-subtitle {
-            max-width: 800px;
-            margin: 0 auto 55px auto;
-            text-align: center;
-            font-size: 17px;
-            color: var(--text-light);
-            line-height: 1.8;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .highlight-brand {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .peer-proof-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .peer-proof-card {
-            background: var(--bg);
-            border: 1px solid #efefef;
-            padding: 50px 45px 45px 55px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            position: relative;
-            min-height: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .peer-proof-card::before {
-            content: "“";
-            font-family: serif;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--surface-alt);
-            line-height: 1;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .peer-proof-text {
-            color: var(--text-light);
-            position: relative;
-            z-index: 1;
-            font-family: 'Aboreto', display, sans-serif;
-            font-style: italic; 
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .peer-proof-author {
-            position: relative;
-            z-index: 1;
-            font-style: normal;
-            font-weight: 600;
-            color: var(--primary);
-            letter-spacing: 1.5px;
-            font-size: 0.95rem;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        /* Footer Styles */
-        .sigma_footer {
-            position: relative;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 90px 0 0;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .index-footer-bg {
-            background-image: linear-gradient(rgba(15, 10, 13, 0.95), rgba(15, 10, 13, 0.95)), url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .sigma_footer-middle {
-            margin-bottom: 50px;
-        }
-
-        .footer-widget .widget-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .footer-widget p {
-            font-size: 17px;
-            line-height: 1.8;
-            color: #e0e0e0;
-            letter-spacing: 1.2px;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .footer-widget ul {
-            list-style: none;
-        }
-
-        .footer-widget ul li {
-            margin-bottom: 15px;
-        }
-
-        .footer-widget ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-size: 17px;
-            letter-spacing: 1.2px;
-            transition: color 0.3s ease;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .footer-widget ul li a:hover {
-            color: var(--primary);
-        }
-
-        .footer-widget a.footer-contact-link,
-        .footer-widget p a {
-            color: #e0e0e0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-widget a.footer-contact-link:hover,
-        .footer-widget p a:hover {
-            color: var(--primary);
-        }
-
-        .footer-reservation-box {
-            display: inline-block;
-            border: 1px solid #ffffff;
-            padding: 14px 28px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        .footer-reservation-box:hover {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: #ffffff;
-        }
-
-        .sigma_footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 25px 0;
-            text-align: center;
-        }
-
-        .sigma_footer-bottom p {
-            font-size: 0.85rem;
-            color: #cccccc;
-            letter-spacing: 2px;
-            margin: 0;
-            font-family: 'Aboreto', display, sans-serif;
-        }
-
-        /* Floating WhatsApp Button Styling */
-        .whatsapp-float {
-            position: fixed;
-            width: 55px;
-            height: 55px;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 28px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* --- MOBILE RESPONSIVE SIDE DRAWER FIX --- */
-        @media (max-width: 968px) {
-            html, body {
-                max-width: 100vw;
-                overflow-x: hidden !important;
-            }
-
-            .site-header {
-                padding: 12px 15px;
-            }
-
-            .header-nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 260px;
-                max-width: 80vw;
-                height: 100vh;
-                background-color: var(--bg);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 25px 30px 25px;
-                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-                z-index: 1050;
-            }
-
-            .header-nav.active {
-                right: 0;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-                margin-bottom: 25px;
-                width: 100%;
-            }
-
-            .nav-links a {
-                font-size: 1rem;
-            }
-
-            .reservation-btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .relaunch-container {
-                flex-direction: column;
-                gap: 45px;
-            }
-
-            .about-features-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .relaunch-title, .section-main-title, .peer-proof-title {
-                font-size: 1.8rem !important;
-                line-height: 1.3;
-            }
-
-            .image-frame {
-                height: 320px;
-            }
-
-            .modern-cta-title {
-                font-size: 1.3rem !important;
-                white-space: normal;
-                line-height: 1.4;
-            }
-
-            .peer-proof-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 75px;
-            }
-
-            .kr-hero {
-                height: 75vh;
-                min-height: 400px;
-            }
-
-            .kr-content {
-                padding: 0 15px;
-            }
-
-            .kr-subtitle {
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-            }
-
-            .kr-title {
-                font-size: 1.7rem !important;
-            }
-
-            .kr-btn {
-                padding: 10px 20px;
-                font-size: 0.8rem;
-            }
-
-            .kr-counter {
-                right: 15px;
-                bottom: 15px;
-                font-size: 0.85rem;
-            }
-
-            .kr-dots {
-                bottom: 20px;
-            }
-
-            .relaunch-section {
-                padding: 40px 15px;
-            }
-
-            .relaunch-image-col {
-                padding-left: 0;
-                padding-top: 0;
-            }
-
-            .pink-backdrop-card {
-                right: 0;
-            }
-
-            .image-frame {
-                height: 280px;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-
-            .section-main-title {
-                font-size: 1.6rem !important;
-                padding: 0 15px;
-            }
-
-            .accommodation-intro-text {
-                padding: 0 15px;
-                font-size: 14px;
-                margin-bottom: 25px;
-            }
-
-            .sigma_post.style-2 .sigma_post-body {
-                width: calc(100% - 20px);
-                margin-left: 10px;
-                margin-top: -30px;
-                padding: 20px 15px 15px 15px;
-            }
-
-            .modern-cta-section {
-                height: 320px;
-            }
-
-            .modern-cta-btn {
-                padding: 12px 25px;
-                font-size: 0.85rem;
-            }
-
-            .peer-proof-section {
-                padding: 40px 15px;
-            }
-
-            .peer-proof-title {
-                font-size: 1.6rem !important;
-            }
-
-            .peer-proof-subtitle {
-                font-size: 14px;
-                margin-bottom: 30px;
-            }
-
-            .peer-proof-card {
-                padding: 30px 20px 20px 30px;
-                min-height: auto;
-            }
-
-            .sigma_footer {
-                padding: 40px 0 0;
-            }
-
-            .sigma_footer .row {
-                flex-direction: column;
-                gap: 30px !important;
-            }
-
-            .footer-widget {
-                text-align: left !important;
-            }
-
-            .whatsapp-float {
-                width: 48px;
-                height: 48px;
-                bottom: 15px;
-                right: 15px;
-                font-size: 22px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Header Component with Fixed Image Logo -->
     <header class="site-header">
         <div class="sigma_logo-wrapper">
             <a class="navbar-brand" href="#kr-hero">
-                <img src="assets/img/logo.png" alt="Bougainville Logo" loading="lazy">
+                <img src="assets/img/logo.jpeg" alt="Bougainville Logo" loading="lazy">
             </a>
         </div>
 
@@ -1236,11 +40,11 @@
     </header>
 
     <!-- Interactive Sliding Hero Banner Section -->
-    <section class="kr-hero" id="kr-hero" aria-label="Bougainville home banner">
-        
+    <section class="kr-hero initial-load" id="kr-hero" aria-label="Bougainville home banner">
+
         <!-- Slide 1 -->
         <div class="kr-slide is-active" aria-hidden="false">
-            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/bannerr1.jpg');"></div>
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner01.jpeg');"></div>
             <div class="kr-overlay" role="presentation"></div>
             <div class="kr-vignette" role="presentation"></div>
             <div class="kr-content">
@@ -1252,7 +56,7 @@
 
         <!-- Slide 2 -->
         <div class="kr-slide" aria-hidden="true">
-            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/bannerr2.jpg');"></div>
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner2.jpeg');"></div>
             <div class="kr-overlay" role="presentation"></div>
             <div class="kr-vignette" role="presentation"></div>
             <div class="kr-content">
@@ -1264,7 +68,7 @@
 
         <!-- Slide 3 -->
         <div class="kr-slide" aria-hidden="true">
-            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/bannerr3.jpg');"></div>
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner3.png');"></div>
             <div class="kr-overlay" role="presentation"></div>
             <div class="kr-vignette" role="presentation"></div>
             <div class="kr-content">
@@ -1276,7 +80,7 @@
 
         <!-- Slide 4 -->
         <div class="kr-slide" aria-hidden="true">
-            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/bannerr4.jpg');"></div>
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner4.jpeg');"></div>
             <div class="kr-overlay" role="presentation"></div>
             <div class="kr-vignette" role="presentation"></div>
             <div class="kr-content">
@@ -1307,10 +111,14 @@
             <div class="relaunch-text-col">
                 <div class="about-top-tag">Luxury Beach Resort in Kovalam</div>
                 <h2 class="relaunch-title">Bougainville Resorts By The Sea</h2>
-                
+
                 <div class="about-content-box">
                     <p class="relaunch-desc">
-                        Discover a breathtaking oasis where the gentle whispers of the Bay of Bengal meet unmatched luxury. Formerly known as Casuarina Bay, Bougainville Resorts By The Sea invites you to immerse yourself in tropical tranquility. Unwind in private, air-conditioned Mongolian yurts, indulge in sea-facing culinary masterworks, and celebrate life's milestones under a canopy of stars—all along the picturesque ECR near Chennai.
+                        Discover a breathtaking oasis where the gentle whispers of the Bay of Bengal meet unmatched
+                        luxury. Formerly known as Casuarina Bay, Bougainville Resorts By The Sea invites you to immerse
+                        yourself in tropical tranquility. Unwind in private, air-conditioned Mongolian yurts, indulge in
+                        sea-facing culinary masterworks, and celebrate life's milestones under a canopy of stars—all
+                        along the picturesque ECR near Chennai.
                     </p>
                 </div>
 
@@ -1333,7 +141,8 @@
                         </div>
                         <div class="about-feature-content">
                             <h4>Sea Facing Dining</h4>
-                            <p>Enjoy multicuisine dining, BBQ nights, candle light dinners, and live music by the sea.</p>
+                            <p>Enjoy multicuisine dining, BBQ nights, candle light dinners, and live music by the sea.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1348,7 +157,7 @@
             <div class="relaunch-image-col">
                 <div class="pink-backdrop-card"></div>
                 <div class="image-frame">
-                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80" alt="Bougainville Resort by the Sea Yurts and Pool">
+                    <img src="assets/img/bannerr1.jpg" alt="Bougainville Resort by the Sea Yurts and Pool">
                 </div>
             </div>
         </div>
@@ -1360,84 +169,261 @@
 
             <div class="section-header">
                 <h2 class="section-main-title">Unique Accommodations</h2>
-                <p class="accommodation-intro-text">Offering stays in Mongolian styled Yurts which is unique to <br> Chennai, along with sea deck rooms featuring private <br> balconies facing the ocean.</p>
+                <p class="accommodation-intro-text">
+                    Bougainville Resorts By The Sea offers 19 exclusive accommodations along the Kovalam coastline — featuring air-conditioned Mongolian Style Glamping Yurts, sea deck rooms with private bath tubs, and a private family villa.
+                </p>
             </div>
 
             <div class="row justify-content-center">
-                <!-- Room 1 -->
+
+                <!-- 1. Luxury A/c Yurt (Double + Single) -->
                 <div class="col-lg-4 col-md-6">
                     <article class="sigma_post style-2">
                         <div class="sigma_post-thumb">
-                            <img src="https://cache.marriott.com/content/dam/marriott-renditions/MAASC/maasc-executive-suite-9089-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="Deluxe Room" loading="lazy">
+                            <span class="room-type-tag">Glamping Yurt</span>
+                            <img src="assets/img/bannerr1.jpg" alt="Luxury A/c Yurt Double bed & One single" loading="lazy">
                         </div>
                         <div class="sigma_post-body">
-                            <div class="room-specs-bar">
-                                <div class="room-spec-item">
-                                    <span class="material-icons" style="font-size: 18px;">open_with</span> 398 Sq Ft
+                          
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Luxury%20A/C%20Yurt%20Double%20%2B%20Single%20bed." target="_blank">Luxury A/c Yurt (Double & Single Bed)</a></h5>
+                            <p>Private Mongolian Style air-conditioned glamping tent with 1 Double Bed & 1 Single Bed.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹7,500</span>
                                 </div>
-                                <div class="room-spec-item">
-                                    <span class="material-icons" style="font-size: 18px;">group</span> Max 3 Guests
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹10,000</span>
                                 </div>
                             </div>
-                            <h5><a href="#contact">Deluxe Room (King/Twin)</a></h5>
-                            <p>Enjoy elegant accommodations featuring a king or twin bed and private balcony.</p>
+
                             <div class="room-footer-row">
-                                <span class="room-bed-type">King / Twin</span>
-                                <a href="#contact" class="room-book-btn">Book Now</a>
+                                <span class="room-bed-type">Double + 1 Single Bed</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Luxury%20A/C%20Yurt%20Double%20%2B%20Single%20bed." target="_blank" class="room-book-btn">Book Now</a>
                             </div>
                         </div>
                     </article>
                 </div>
 
-                <!-- Room 2 -->
+                <!-- 2. Luxury A/c Yurt (Twin Double) -->
                 <div class="col-lg-4 col-md-6">
                     <article class="sigma_post style-2">
                         <div class="sigma_post-thumb">
-                            <img src="https://cache.marriott.com/content/dam/marriott-renditions/MAASC/maasc-bay-villa-9316-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="Deluxe Garden View Room" loading="lazy">
+                            <span class="room-type-tag">Glamping Yurt</span>
+                            <img src="assets/img/banner4.jpeg" alt="Luxury A/c Yurt Twin Double bed" loading="lazy">
                         </div>
                         <div class="sigma_post-body">
-                            <div class="room-specs-bar">
-                                <div class="room-spec-item">
-                                    <span class="material-icons" style="font-size: 18px;">open_with</span> 409 Sq Ft
+                          
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Luxury%20A/C%20Yurt%20Twin%20Double%20bed." target="_blank">Luxury A/c Yurt (Twin Double Bed)</a></h5>
+                            <p>Spacious Mongolian Style A/C glamping tent equipped with two comfortable double beds.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹10,000</span>
                                 </div>
-                                <div class="room-spec-item">
-                                    <span class="material-icons" style="font-size: 18px;">group</span> Max 3 Guests
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹15,000</span>
                                 </div>
                             </div>
-                            <h5><a href="#contact">Deluxe Garden View Room</a></h5>
-                            <p>Relax in premium rooms surrounded by beautiful tropical gardens and modern amenities.</p>
+
                             <div class="room-footer-row">
-                                <span class="room-bed-type">King Bed</span>
-                                <a href="#contact" class="room-book-btn">Book Now</a>
+                                <span class="room-bed-type">Twin Double Beds</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Luxury%20A/C%20Yurt%20Twin%20Double%20bed." target="_blank" class="room-book-btn">Book Now</a>
                             </div>
                         </div>
                     </article>
                 </div>
 
-                <!-- Room 3 -->
+                <!-- 3. Deluxe Double -->
                 <div class="col-lg-4 col-md-6">
                     <article class="sigma_post style-2">
                         <div class="sigma_post-thumb">
-                            <img src="https://cache.marriott.com/content/dam/marriott-renditions/MAASC/maasc-amaragrand-villa-9312-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="Sea View Room" loading="lazy">
+                            <span class="room-type-tag">Deluxe Room</span>
+                            <img src="assets/img/banner01.jpeg" alt="Deluxe Double Room" loading="lazy">
                         </div>
                         <div class="sigma_post-body">
-                            <div class="room-specs-bar">
-                                <div class="room-spec-item">
-                                    <span class="material-icons" style="font-size: 18px;">open_with</span> 415 Sq Ft
+                            
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20Room." target="_blank">Deluxe Double</a></h5>
+                            <p>Cozy and elegant deluxe double bedroom with modern resort amenities and sea breeze access.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹4,000</span>
                                 </div>
-                                <div class="room-spec-item">
-                                    <span class="material-icons" style="font-size: 18px;">group</span> Max 3 Guests
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹5,500</span>
                                 </div>
                             </div>
-                            <h5><a href="#contact">Sea View Room</a></h5>
-                            <p>Enjoy spectacular, unobstructed views of the ocean from your private balcony.</p>
+
                             <div class="room-footer-row">
-                                <span class="room-bed-type">King / Twin</span>
-                                <a href="#contact" class="room-book-btn">Book Now</a>
+                                <span class="room-bed-type">Double Bed</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20Room." target="_blank" class="room-book-btn">Book Now</a>
                             </div>
                         </div>
                     </article>
                 </div>
+
+                <!-- 4. Deluxe Double with Bath Tub -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Room</span>
+                            <img src="about-resort.jpg" alt="Deluxe Double with Bath Tub" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+                           
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20with%20Bath%20Tub." target="_blank">Deluxe Double with Bath Tub</a></h5>
+                            <p>Premium room featuring a plush double bed and a private luxury bath tub for relaxing soaks.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹5,000</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹6,500</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Double Bed + Bath Tub</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20with%20Bath%20Tub." target="_blank" class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 5. Deluxe Double & Single Bed with Bath Tub -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Suite</span>
+                            <img src="assets/img/banner2.jpeg" alt="Deluxe Double & Single Bed with Bath Tub" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+                           
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20%26%20Single%20Bed%20with%20Bath%20Tub." target="_blank">Deluxe Double & Single with Bath Tub</a></h5>
+                            <p>Spacious deluxe room with 1 double bed, 1 single bed, and an ensuite bath tub.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹6,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹7,500</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Double + Single + Tub</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20%26%20Single%20Bed%20with%20Bath%20Tub." target="_blank" class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 6. Deluxe Twin Double -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Room</span>
+                            <img src="assets/img/banner3.jpeg" alt="Deluxe Twin Double Room" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+                          
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Twin%20Double%20Room." target="_blank">Deluxe Twin Double</a></h5>
+                            <p>Ideal accommodation for friends or family, featuring two full double beds.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹6,000</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹7,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Twin Double Beds</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Twin%20Double%20Room." target="_blank" class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 7. Deluxe Three Double Bed -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Family Suite</span>
+                            <img src="assets/img/bannerr1.jpg" alt="Deluxe Three Double Bed Suite" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+                         
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Three%20Double%20Bed%20Suite." target="_blank">Deluxe Three Double Bed</a></h5>
+                            <p>Grand family suite with three large double beds, perfect for group getaways.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹8,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹12,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">3 Double Beds</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Three%20Double%20Bed%20Suite." target="_blank" class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 8. Private Family Villa -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Private Villa</span>
+                            <img src="assets/img/privatevilla.jpeg" alt="Private Family Villa" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+                           
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Private%20Family%20Villa." target="_blank">Private Family Villa</a></h5>
+                            <p>Exclusive private sanctuary featuring 1 King Bed, 1 Sofa Bed, private lounge, and garden access.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹12,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹15,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">King Bed + Sofa Bed</span>
+                                <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Private%20Family%20Villa." target="_blank" class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1457,20 +443,23 @@
             <div class="peer-proof-header">
                 <h2 class="peer-proof-title">Testimonials</h2>
                 <p class="peer-proof-subtitle">
-                    Read what our valued guests have to say about their luxury stays, dining, events, and unforgettable experiences at <span class="highlight-brand">Bougainville Resorts By The Sea</span>.
+                    Read what our valued guests have to say about their luxury stays, dining, events, and unforgettable
+                    experiences at <span class="highlight-brand">Bougainville Resorts By The Sea</span>.
                 </p>
             </div>
             <div class="peer-proof-grid">
                 <div class="peer-proof-card">
                     <p class="peer-proof-text">
-                        "Our stay in the luxury yurts was an absolute dream. Waking up to the pool view, enjoying a floating breakfast, and walking right to the beach—it’s the perfect weekend escape near Chennai."
+                        "Our stay in the luxury yurts was an absolute dream. Waking up to the pool view, enjoying a
+                        floating breakfast, and walking right to the beach—it’s the perfect weekend escape near
+                        Chennai."
                     </p>
                     <cite class="peer-proof-author">Vikram & Shalini</cite>
                 </div>
                 <div class="peer-proof-card">
                     <p class="peer-proof-text">
-                         A true hidden gem along the ECR. The sea-facing dining at C Salt serves incredible fresh
-                         seafood, and the sunset views are absolutely breathtaking. Highly recommended!
+                        A true hidden gem along the ECR. The sea-facing dining at C Salt serves incredible fresh
+                        seafood, and the sunset views are absolutely breathtaking. Highly recommended!
                     </p>
                     <cite class="peer-proof-author">Meera Krishnan</cite>
                 </div>
@@ -1483,12 +472,14 @@
         <div class="sigma_footer-middle">
             <div class="container">
                 <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-                    
+
                     <!-- About Us Column -->
                     <div class="col-lg-4 col-md-6 footer-widget" style="flex: 1; min-width: 280px;">
                         <h5 class="widget-title">About Us</h5>
                         <p>
-                            Bougainville Resorts By The Sea is a luxury beachside resort in Kovalam offering private yurts, premium dining, swimming pools, beach events, and unforgettable holiday experiences near Chennai.
+                            Bougainville Resorts By The Sea is a luxury beachside resort in Kovalam offering private
+                            yurts, premium dining, swimming pools, beach events, and unforgettable holiday experiences
+                            near Chennai.
                         </p>
                     </div>
 
@@ -1499,8 +490,11 @@
                             No.1 , Casuarina Drive, Philip Thottam,<br>
                             Kovalam , Chennai 603112, Tamil Nadu, IN
                         </p>
-                        <p style="margin-bottom: 10px;">Phone: <a href="tel:9444007890" class="footer-contact-link">9444007890</a></p>
-                        <p style="margin-bottom: 20px; white-space: nowrap;">Email: <a href="mailto:bougainvillebythesea@gmail.com" class="footer-contact-link">bougainvillebythesea@gmail.com</a></p>
+                        <p style="margin-bottom: 10px;">Phone: <a href="tel:9444007890"
+                                class="footer-contact-link">9444007890</a></p>
+                        <p style="margin-bottom: 20px; white-space: nowrap;">Email: <a
+                                href="mailto:bougainvillebythesea@gmail.com"
+                                class="footer-contact-link">bougainvillebythesea@gmail.com</a></p>
                     </div>
 
                     <!-- Quick Links Column (With updated WhatsApp link for BOOK NOW) -->
@@ -1513,7 +507,9 @@
                         </ul>
                         <div>
                             <!-- Changed href to target WhatsApp chat directly with pre-filled inquiry text -->
-                            <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20make%20a%20reservation%20at%20Bougainville%20Resort." id="footerBookBtn" class="footer-reservation-box" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+                            <a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20make%20a%20reservation%20at%20Bougainville%20Resort."
+                                id="footerBookBtn" class="footer-reservation-box" target="_blank"
+                                rel="noopener noreferrer">BOOK NOW</a>
                         </div>
                     </div>
 
@@ -1551,12 +547,12 @@
         });
 
         // Hero Banner Slider Controller
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const slides = document.querySelectorAll('.kr-slide');
             const dots = document.querySelectorAll('.kr-dot');
             const counterCurrent = document.querySelector('.kr-counter-current');
             const progressBar = document.getElementById('kr-progress');
-            
+
             let currentIndex = 0;
             const slideIntervalTime = 5000;
             let slideTimer;
@@ -1574,13 +570,13 @@
                 currentIndex = (index + slides.length) % slides.length;
                 slides[currentIndex].classList.add('is-active');
                 slides[currentIndex].setAttribute('aria-hidden', 'false');
-                
-                if(dots[currentIndex]) {
+
+                if (dots[currentIndex]) {
                     dots[currentIndex].classList.add('is-active');
                     dots[currentIndex].setAttribute('aria-selected', 'true');
                 }
 
-                if(counterCurrent) {
+                if (counterCurrent) {
                     counterCurrent.textContent = String(currentIndex + 1).padStart(2, '0');
                 }
 
@@ -1591,7 +587,7 @@
                 if (!progressBar) return;
                 progressBar.style.transition = 'none';
                 progressBar.style.width = '0%';
-                
+
                 setTimeout(() => {
                     progressBar.style.transition = `width ${slideIntervalTime}ms linear`;
                     progressBar.style.width = '100%';
@@ -1619,4 +615,5 @@
         });
     </script>
 </body>
+
 </html>

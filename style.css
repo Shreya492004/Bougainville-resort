@@ -809,19 +809,45 @@
      font-size: 0.95rem;
  }
 
- /* Modern CTA Section */
+ /* Modern CTA Section - Dynamic Event Venues Motion Banner */
  .modern-cta-section {
      position: relative;
      width: 100%;
-     height: 480px;
-     background-image: url('assets/img/private-villa.jpeg');
-     background-size: cover;
-     background-position: center;
+     height: 520px;
+     overflow: hidden;
      display: flex;
      align-items: center;
      justify-content: center;
      text-align: center;
      font-family: 'Aboreto', display, sans-serif;
+ }
+
+ .venues-slider-track {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 0;
+ }
+
+ .venue-slide {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-size: cover;
+     background-position: center;
+     opacity: 0;
+     transform: scale(1.08);
+     transition: opacity 1.5s ease-in-out, transform 7s ease-out;
+     will-change: opacity, transform;
+ }
+
+ .venue-slide.is-active {
+     opacity: 1;
+     transform: scale(1);
  }
 
  .modern-cta-overlay {
@@ -830,8 +856,9 @@
      left: 0;
      width: 100%;
      height: 100%;
-     background: rgba(10, 8, 10, 0.45);
+     background: linear-gradient(180deg, rgba(10, 8, 10, 0.55) 0%, rgba(10, 8, 10, 0.65) 100%);
      z-index: 1;
+     pointer-events: none;
  }
 
  .modern-cta-content {
@@ -850,8 +877,9 @@
      font-size: 3.4rem;
      color: #ffffff;
      white-space: nowrap;
-     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
      font-family: 'Aboreto', display, sans-serif;
+     line-height: 1.25;
  }
 
  .modern-cta-btn {
@@ -868,12 +896,23 @@
      text-decoration: none;
      border-radius: 30px;
      transition: all 0.3s ease;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
  }
 
- .modern-cta-btn:hover {
+ .modern-cta-btn:hover,
+ .modern-cta-btn:focus-visible {
      background-color: transparent;
      color: #ffffff;
      border-color: #ffffff;
+     transform: translateY(-2px);
+     box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+     .venue-slide {
+         transition: opacity 0.5s ease-in-out;
+         transform: none !important;
+     }
  }
 
  /* Testimonials Section Styles */

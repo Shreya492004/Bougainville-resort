@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bougainville Resort By The Sea</title>
+    <!-- Google Fonts: Aboreto -->
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+   <link rel="icon" type="image/png" href="./assets/img/logo-(1).jpg">
+</head>
+
+<body>
+
+    <!-- Header Component with Fixed Image Logo -->
+    <header class="site-header">
+        <div class="sigma_logo-wrapper img">
+            <a class="navbar-brand" href="#kr-hero">
+                <img src="assets/img/logo-(1).jpg" alt="Bougainville Logo" loading="lazy">
+            </a>
+        </div>
+
+        <nav class="header-nav" id="headerNav">
+            <ul class="nav-links">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#stays">STAYS</a></li>
+                <li><a href="#reviews">REVIEWS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <!-- <a href="" class="reservation-btn" target="_blank" rel="noopener noreferrer" disabled>MAKE A RESERVATION</a> -->
+            <a href="#" class="reservation-btn" style="pointer-events: none; opacity: 0.6; cursor: not-allowed;"
+                target="_blank" rel="noopener noreferrer">MAKE A RESERVATION</a>
+
+        </nav>
+
+        <div class="menu-toggle" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Interactive Sliding Hero Banner Section -->
+    <section class="kr-hero initial-load" id="kr-hero" aria-label="Bougainville home banner">
+
+        <!-- Slide 1 -->
+        <div class="kr-slide is-active" aria-hidden="false">
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner1\(2\).jpeg');"></div>
+            <div class="kr-overlay" role="presentation"></div>
+            <div class="kr-vignette" role="presentation"></div>
+            <div class="kr-content">
+                <h1 class="kr-title">BOUGAINVILLE<br>RESORT BY THE SEA</h1>
+                <p class="kr-subtitle">A COASTAL RESORT EXPERIENCE COMING SOON</p>
+                <!-- <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" class="kr-btn" target="_blank" rel="noopener noreferrer">MAKE A RESERVATION</a> -->
+                <a href="#" class="kr-btn" style="pointer-events: none; opacity: 0.6; cursor: not-allowed;"
+                    target="_blank" rel="noopener noreferrer">MAKE A RESERVATION</a>
+
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="kr-slide" aria-hidden="true">
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner2.jpg');"></div>
+            <div class="kr-overlay" role="presentation"></div>
+            <div class="kr-vignette" role="presentation"></div>
+            <div class="kr-content">
+                <h1 class="kr-title">INDULGE IN OCEANFRONT DINING</h1>
+                <p class="kr-subtitle">Gourmet Experiences By The Water</p>
+                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" class="kr-btn" target="_blank"
+                    rel="noopener noreferrer">View Dining</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="kr-slide" aria-hidden="true">
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner3\(2\).jpeg');"></div>
+            <div class="kr-overlay" role="presentation"></div>
+            <div class="kr-vignette" role="presentation"></div>
+            <div class="kr-content">
+                <h1 class="kr-title">CRAFT YOUR DREAM SEASIDE EVENTS</h1>
+                <p class="kr-subtitle">Beachside Celebrations & Weddings</p>
+                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" class="kr-btn" target="_blank"
+                    rel="noopener noreferrer">Plan Your Event</a>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="kr-slide" aria-hidden="true">
+            <div class="kr-bg" role="presentation" style="background-image: url('assets/img/banner4.jpg');"></div>
+            <div class="kr-overlay" role="presentation"></div>
+            <div class="kr-vignette" role="presentation"></div>
+            <div class="kr-content">
+                <h1 class="kr-title">YOUR PRIVATE SEASIDE ESCAPE</h1>
+                <p class="kr-subtitle">Exclusive Paradise Along The ECR</p>
+                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" class="kr-btn" target="_blank"
+                    rel="noopener noreferrer">Book Your Escape</a>
+            </div>
+        </div>
+
+        <!-- Dot navigation -->
+        <div class="kr-dots" role="tablist" aria-label="Slide navigation">
+            <button class="kr-dot is-active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button class="kr-dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="kr-dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            <button class="kr-dot" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+        </div>
+
+        <!-- Slide counter -->
+        <div class="kr-counter"><span class="kr-counter-current">01</span> / 04</div>
+
+        <!-- Progress bar -->
+        <div class="kr-progress" id="kr-progress" aria-hidden="true"></div>
+    </section>
+
+    <!-- Redesigned About Section -->
+    <section class="relaunch-section" id="about">
+        <div class="relaunch-container">
+            <div class="relaunch-text-col">
+                <div class="about-top-tag">Luxury Beach Resort in Kovalam</div>
+                <h2 class="relaunch-title">Bougainville Resorts By The Sea</h2>
+
+                <div class="about-content-box">
+                    <p class="relaunch-desc">
+                        Discover a breathtaking oasis where the gentle whispers of the Bay of Bengal meet unmatched
+                        luxury. Formerly known as Casuarina Bay, Bougainville Resorts By The Sea invites you to immerse
+                        yourself in tropical tranquility. Unwind in private, air-conditioned Mongolian yurts, indulge in
+                        sea-facing culinary masterworks, and celebrate life's milestones under a canopy of stars—all
+                        along the picturesque ECR near Chennai.
+                    </p>
+                </div>
+
+                <div class="about-features-grid">
+                    <!-- Feature 1 -->
+                    <div class="about-feature-item">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-campground"></i>
+                        </div>
+                        <div class="about-feature-content">
+                            <h4>Luxury Yurts</h4>
+                            <p>Private Mongolian style air conditioned yurts with beautiful pool facing views.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="about-feature-item">
+                        <div class="about-feature-icon">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div class="about-feature-content">
+                            <h4>Sea Facing Dining</h4>
+                            <p>Enjoy multicuisine dining, BBQ nights, candle light dinners, and live music by the sea.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-btn-wrap" style="margin-top: 30px;">
+                    <a href="#contact" class="about-learn-more-btn">
+                        Learn More <span class="material-icons" style="font-size: 18px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relaunch-image-col">
+                <div class="pink-backdrop-card"></div>
+                <div class="image-frame">
+                    <img src="assets/img/LuxuryBeach.jpg" alt="Bougainville Resort by the Sea Yurts and Pool">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Accommodation Section -->
+    <section class="section section-padding light-bg about-section-padding" id="stays">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-main-title">Unique Accommodations</h2>
+                <p class="accommodation-intro-text">
+                    Bougainville Resorts By The Sea offers 19 exclusive accommodations along the Kovalam coastline —
+                    featuring air-conditioned Mongolian Style Glamping Yurts, sea deck rooms with private bath tubs, and
+                    a private family villa.
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <!-- 1. Luxury A/c Yurt (Double + Single) -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Glamping Yurt</span>
+                            <img src="assets/img/Luxury-AC-Yurt.jpg" alt="Luxury A/c Yurt Double bed & One single"
+                                loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Luxury%20A/C%20Yurt%20Double%20%2B%20Single%20bed."
+                                    target="_blank">Luxury A/c Yurt (Double & Single Bed)</a></h5>
+                            <p>Private Mongolian Style air-conditioned glamping tent with 1 Double Bed & 1 Single Bed.
+                            </p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹7,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹10,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Double + 1 Single Bed</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 2. Luxury A/c Yurt (Twin Double) -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Glamping Yurt</span>
+                            <img src="assets/img/Luxury-AC-Yurt2.jpg" alt="Luxury A/c Yurt Twin Double bed"
+                                loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Luxury%20A/C%20Yurt%20Twin%20Double%20bed."
+                                    target="_blank">Luxury A/c Yurt (Twin Double Bed)</a></h5>
+                            <p>Spacious Mongolian Style A/C glamping tent equipped with two comfortable double beds.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹10,000</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹15,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Twin Double Beds</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 3. Deluxe Double -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Room</span>
+                            <img src="assets/img/banner01.jpeg" alt="Deluxe Double Room" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20Room."
+                                    target="_blank">Deluxe Double</a></h5>
+                            <p>Cozy and elegant deluxe double bedroom with modern resort amenities and sea breeze
+                                access.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹4,000</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹5,500</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Double Bed</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 4. Deluxe Double with Bath Tub -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Room</span>
+                            <img src="assets/img/deluxe2.jpeg" alt="Deluxe Double with Bath Tub" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20with%20Bath%20Tub."
+                                    target="_blank">Deluxe Double with Bath Tub</a></h5>
+                            <p>Premium room featuring a plush double bed and a private luxury bath tub for relaxing
+                                soaks.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹5,000</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹6,500</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Double Bed + Bath Tub</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 5. Deluxe Double & Single Bed with Bath Tub -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Suite</span>
+                            <img src="assets/img/bathtub.jpeg" alt="Deluxe Double & Single Bed with Bath Tub"
+                                loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Double%20%26%20Single%20Bed%20with%20Bath%20Tub."
+                                    target="_blank">Deluxe Double & Single with Bath Tub</a></h5>
+                            <p>Spacious deluxe room with 1 double bed, 1 single bed, and an ensuite bath tub.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹6,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹7,500</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Double + Single + Tub</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 6. Deluxe Twin Double -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Deluxe Room</span>
+                            <img src="assets/img/deluxe3.jpeg" alt="Deluxe Twin Double Room" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Twin%20Double%20Room."
+                                    target="_blank">Deluxe Twin Double</a></h5>
+                            <p>Ideal accommodation for friends or family, featuring two full double beds.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹6,000</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹7,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">Twin Double Beds</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 7. Deluxe Three Double Bed -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Family Suite</span>
+                            <img src="assets/img/DeluxeThree.jpg" alt="Deluxe Three Double Bed Suite" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Deluxe%20Three%20Double%20Bed%20Suite."
+                                    target="_blank">Deluxe Three Double Bed</a></h5>
+                            <p>Grand family suite with three large double beds, perfect for group getaways.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹8,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹12,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">3 Double Beds</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 8. Private Family Villa -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="sigma_post style-2">
+                        <div class="sigma_post-thumb">
+                            <span class="room-type-tag">Private Villa</span>
+                            <img src="assets/img/private.jpg" alt="Private Family Villa" loading="lazy">
+                        </div>
+                        <div class="sigma_post-body">
+
+                            <h5><a href="https://wa.me/919444007890?text=Hi,%20I%20would%20like%20to%20book%20the%20Private%20Family%20Villa."
+                                    target="_blank">Private Family Villa</a></h5>
+                            <p>Exclusive private sanctuary featuring 1 King Bed, 1 Sofa Bed, private lounge, and garden
+                                access.</p>
+
+                            <div class="room-pricing-box">
+                                <div class="price-row">
+                                    <span class="price-label">Week Days:</span>
+                                    <span class="price-val">₹12,500</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Week End:</span>
+                                    <span class="price-val">₹15,000</span>
+                                </div>
+                            </div>
+
+                            <div class="room-footer-row">
+                                <span class="room-bed-type">King Bed + Sofa Bed</span>
+                                <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" target="_blank"
+                                    class="room-book-btn">Book Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Full-Width Event Venues Motion Banner Section -->
+    <section class="modern-cta-section event-venues-motion-section" aria-label="Event Venues Showcase">
+        <!-- 10 Rotating/Sliding Background Slides -->
+        <div class="venues-slider-track" id="venuesSliderTrack">
+            <div class="venue-slide is-active" style="background-image: url('assets/img/banner4.jpg');"
+                aria-hidden="false"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/exper.jpeg');" aria-hidden="true"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/banner2.jpeg');" aria-hidden="true"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/banner3\(2\).jpeg');" aria-hidden="true"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/Luxury-AC-Yurt.jpg');"
+                aria-hidden="true"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/banner01.jpeg');" aria-hidden="true">
+            </div>
+            <div class="venue-slide" style="background-image: url('assets/img/slider1.jpeg');" aria-hidden="true"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/LuxuryBeach.jpg');" aria-hidden="true">
+            </div>
+            <div class="venue-slide" style="background-image: url('assets/img/private.jpg');" aria-hidden="true"></div>
+            <div class="venue-slide" style="background-image: url('assets/img/private-villa.jpeg');" aria-hidden="true">
+            </div>
+        </div>
+
+        <!-- Subtle Dark Overlay for optimal text readability -->
+        <div class="modern-cta-overlay" role="presentation"></div>
+
+        <!-- Section Content -->
+        <div class="modern-cta-content">
+
+<div class="modern-cta-content">
+    <h2 class="modern-cta-title">EXPERIENCE COASTAL LUXURY LIKE <br>NEVER BEFORE</h2>
+    <a href="#" class="modern-cta-btn" id="getInTouchBtn" aria-label="Get in touch via email">GET IN TOUCH</a>
+</div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="peer-proof-section" id="reviews">
+        <div class="peer-proof-container">
+            <div class="peer-proof-header">
+                <h2 class="peer-proof-title">Testimonials</h2>
+                <p class="peer-proof-subtitle">
+                    Read what our valued guests have to say about their luxury stays, dining, events, and unforgettable
+                    experiences at <span class="highlight-brand">Bougainville Resorts By The Sea</span>.
+                </p>
+            </div>
+            <div class="peer-proof-grid">
+                <div class="peer-proof-card">
+                    <p class="peer-proof-text">
+                        "Our stay in the luxury yurts was an absolute dream. Waking up to the pool view, enjoying a
+                        floating breakfast, and walking right to the beach—it’s the perfect weekend escape near
+                        Chennai."
+                    </p>
+                    <cite class="peer-proof-author">Vikram & Shalini</cite>
+                </div>
+                <div class="peer-proof-card">
+                    <p class="peer-proof-text">
+                        A true hidden gem along the ECR. The sea-facing dining at C Salt serves incredible fresh
+                        seafood, and the sunset views are absolutely breathtaking. Highly recommended!
+                    </p>
+                    <cite class="peer-proof-author">Meera Krishnan</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="sigma_footer footer-2 sigma_footer-dark index-footer-bg" id="contact">
+        <div class="sigma_footer-middle">
+            <div class="container">
+                <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+
+                    <!-- About Us Column -->
+                    <div class="col-lg-4 col-md-6 footer-widget" style="flex: 1; min-width: 280px;">
+                        <h5 class="widget-title">About Us</h5>
+                        <p>
+                            Bougainville Resorts By The Sea is a luxury beachside resort in Kovalam offering private
+                            yurts, premium dining, swimming pools, beach events, and unforgettable holiday experiences
+                            near Chennai.
+                        </p>
+                    </div>
+
+                    <!-- Contact Info Column (In Middle) -->
+                    <div class="col-lg-3 col-md-6 footer-widget" style="flex: 1; min-width: 280px;">
+                        <h5 class="widget-title">Contact Info</h5>
+                        <p style="margin-bottom: 10px;">
+                             #1, Casuarina Bay Resort Drive, Bay View Point,
+                            Kovalam , ECR,<br> Chennai, 603112, Tamil Nadu, IN
+
+                        </p>
+                        <p style="margin-bottom: 10px;">Phone: <a href="tel:9444007890"
+                                class="footer-contact-link">94440 07890</a></p>
+                        <p style="margin-bottom: 20px; white-space: nowrap;">Email: <a
+                                href="mailto:bougainvillebythesea@gmail.com"
+                                class="footer-contact-link">bougainvillebythesea@gmail.com</a></p>
+                    </div>
+
+                    <!-- Quick Links Column (With updated WhatsApp link for BOOK NOW) -->
+                    <div class="col-lg-4 col-md-6 footer-widget" style="flex: 1; min-width: 200px; text-align: center;">
+                        <h5 class="widget-title">Quick Links</h5>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                            <li style="margin-bottom: 15px;"><a href="#about">About</a></li>
+                            <li style="margin-bottom: 15px;"><a href="#stays">Stays</a></li>
+                            <li style="margin-bottom: 15px;"><a href="#reviews">Reviews</a></li>
+                        </ul>
+                        <div>
+                            <!-- Changed href to target WhatsApp chat directly with pre-filled inquiry text -->
+                            <a href="https://www.zotel.ai/hotels/bougainville-by-the-sea" id="footerBookBtn"
+                                class="footer-reservation-box" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="sigma_footer-bottom">
+            <div class="container">
+                <p>Copyright © Bougainville Resorts By The Sea - 2026 </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="https://wa.me/919444007890" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript for Mobile Menu & Slider Functionality -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const headerNav = document.getElementById('headerNav');
+
+        mobileMenu.addEventListener('click', () => {
+            headerNav.classList.toggle('active');
+        });
+
+        // Close mobile menu automatically when a navigation link is clicked
+        const navLinksItems = document.querySelectorAll('.nav-links a, .reservation-btn');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                headerNav.classList.remove('active');
+            });
+        });
+
+        // Hero Banner Slider Controller
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.kr-slide');
+            const dots = document.querySelectorAll('.kr-dot');
+            const counterCurrent = document.querySelector('.kr-counter-current');
+            const progressBar = document.getElementById('kr-progress');
+
+            let currentIndex = 0;
+            const slideIntervalTime = 5000;
+            let slideTimer;
+
+            function goToSlide(index) {
+                slides.forEach(slide => {
+                    slide.classList.remove('is-active');
+                    slide.setAttribute('aria-hidden', 'true');
+                });
+                dots.forEach(dot => {
+                    dot.classList.remove('is-active');
+                    dot.setAttribute('aria-selected', 'false');
+                });
+
+                currentIndex = (index + slides.length) % slides.length;
+                slides[currentIndex].classList.add('is-active');
+                slides[currentIndex].setAttribute('aria-hidden', 'false');
+
+                if (dots[currentIndex]) {
+                    dots[currentIndex].classList.add('is-active');
+                    dots[currentIndex].setAttribute('aria-selected', 'true');
+                }
+
+                if (counterCurrent) {
+                    counterCurrent.textContent = String(currentIndex + 1).padStart(2, '0');
+                }
+
+                resetProgressBar();
+            }
+
+            function resetProgressBar() {
+                if (!progressBar) return;
+                progressBar.style.transition = 'none';
+                progressBar.style.width = '0%';
+
+                setTimeout(() => {
+                    progressBar.style.transition = `width ${slideIntervalTime}ms linear`;
+                    progressBar.style.width = '100%';
+                }, 50);
+            }
+
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+
+            function startSlider() {
+                resetProgressBar();
+                slideTimer = setInterval(nextSlide, slideIntervalTime);
+            }
+
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideTimer);
+                    goToSlide(idx);
+                    startSlider();
+                });
+            });
+
+            startSlider();
+
+            // Event Venues Background Motion Slider Controller (10 Event Venue Images)
+            (function initVenueSlider() {
+                const venueSlides = document.querySelectorAll('.venue-slide');
+                if (!venueSlides.length) return;
+
+                let currentVenueIndex = 0;
+                const venueIntervalTime = 4000; // 4 seconds interval per venue image transition
+
+                function nextVenueSlide() {
+                    venueSlides[currentVenueIndex].classList.remove('is-active');
+                    venueSlides[currentVenueIndex].setAttribute('aria-hidden', 'true');
+
+                    currentVenueIndex = (currentVenueIndex + 1) % venueSlides.length;
+
+                    venueSlides[currentVenueIndex].classList.add('is-active');
+                    venueSlides[currentVenueIndex].setAttribute('aria-hidden', 'false');
+                }
+
+                setInterval(nextVenueSlide, venueIntervalTime);
+            })();
+        });
+        // Get In Touch button Click Listener
+    
+
+const getInTouchBtn = document.getElementById('getInTouchBtn');
+
+if (getInTouchBtn) {
+    getInTouchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const email = 'bougainvillebythesea@gmail.com';
+        const isMobile =
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+                .test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = `mailto:${email}`;
+        } else {
+            window.open(
+                `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`,
+                '_blank'
+            );
+        }
+    });
+}
+    </script>
+
+</body>
+
+</html>
